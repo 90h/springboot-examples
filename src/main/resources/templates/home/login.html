@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<title>Hello ${name}!</title>-->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <style>
+        body{
+            padding-top: 100px;
+        }
+
+        .homepage{
+            padding: 5px 400px 300px 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--<h2 class="hello-title">Hello ${name}!</h2>-->
+<div class="container homepage">
+    <form class="form-horizontal" role="form">
+
+        <div class="form-group">
+            <h3>Login to your account</h3>
+        </div>
+
+        <div class="form-group">
+            <label for="username" class="sr-only col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="username" placeholder="请输入用户名或手机号或邮箱">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="sr-only col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="checkbox col-sm-offset-2 col-sm-10"><label><input type="checkbox">保存密码</label></div>
+        </div>
+        <div class="form-group">
+            <div class="btn btn-link col-sm-10"><label>忘记密码</label></div>
+        </div>
+        <div class="form-group">
+            <div class="btn btn-link col-sm-10"><label>立即注册</label></div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary btn-lg btn-block active" data-loading-text="Loading">登录</button>
+            </div>
+        </div>
+    </form>
+    <!--</div>-->
+</div>
+<script src="/js/main.js"></script>
+</body>
+</html>
