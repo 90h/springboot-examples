@@ -1,3 +1,4 @@
+
 function loginAuthentication() {
     var loginName = $("#loginName").val();
     var loginPwd = $("#loginPwd").val();
