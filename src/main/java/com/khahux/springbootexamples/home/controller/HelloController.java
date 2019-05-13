@@ -1,4 +1,4 @@
-package com.khahux.springbootexamples;
+package com.khahux.springbootexamples.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +15,8 @@ public class HelloController {
 //        return "hello";
 //    }
 
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public String login(){
-        return "home/login";
+        return "/home/login";
     }
 }
