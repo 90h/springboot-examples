@@ -12,16 +12,16 @@ function loginAuthentication() {
     loginName = loginName.trim();
     loginPwd = loginPwd.trim();
 
-    ajaxLogin(loginName,loginPwd);
+    loginPost(loginName,loginPwd);
 }
 
-function ajaxLogin(loginName,loginPwd) {
+function loginPost(loginName,loginPwd) {
     alert("loginName:"+loginName +",loginPwd:"+loginPwd);
 
     var paramdata = {
         username:loginName,
         userpwd:loginPwd
-    }
+    };
 
     $.ajax({
         url:"/loginPost",
