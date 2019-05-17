@@ -1,8 +1,5 @@
 package com.khahux.springbootexamples.common.config;
 
-
-import com.khahux.springbootexamples.common.handler.CustomAccessDeniedHandler;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,13 +12,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.annotation.Resource;
-
+/*
+ *@Author zhangwenyu
+ *@Description //spring security
+ *@Date 2019/5/17 15:29
+ *@Param
+ *@return
+ **/
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String ENCODER_USERNAME= "admin";
-    private static final String ENCODER_PASSWORD = "admin";
     private static final String ROLES = "USER";
 
     @Resource

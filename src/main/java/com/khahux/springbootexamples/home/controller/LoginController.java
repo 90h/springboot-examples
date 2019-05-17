@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.net.URLDecoder;
-
-/**
- * @ClassName LoginController
- * @Description TODO
- * @Author Lenovo
- * @Date 2019/5/17 15:18
- * @Version 1.0
+/*
+ *@Author zhangwenyu
+ *@Description //登录页控制类
+ *@Date 2019/5/17 15:27
+ *@Param 
+ *@return 
  **/
 @Controller
 @RequestMapping("/")
