@@ -1,23 +1,34 @@
 package com.khahux.springbootexamples.home.controller;
 
-import com.khahux.springbootexamples.home.model.UserBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
+/**
+ * @ClassName LoginController
+ * @Description TODO
+ * @Author Lenovo
+ * @Date 2019/5/17 15:18
+ * @Version 1.0
+ **/
 @Controller
 @RequestMapping("/")
 public class LoginController {
+    private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Resource
     private UserDetailsService userDetailsService;
-//    @GetMapping({"/", "/hello"})
+
+    private UserDetails userDetails;
+    //    @GetMapping({"/", "/hello"})
 //    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
 //        model.addAttribute("name", name);
 //        return "hello";
@@ -43,27 +54,15 @@ public class LoginController {
     /*
      *用户登录校验
      */
-    @RequestMapping(value = "/loginPost",method = {RequestMethod.GET,RequestMethod.POST})
-    public String loginPost(@RequestBody String params, HttpServletRequest request ){
-        String account = "";
+    @RequestMapping(value = "/loginPost")
+    public String loginPost(@RequestParam String params) throws Exception{
+        params = URLDecoder.decode(params,"UTF-8");
+        userDetails = userDetailsService.loadUserByUsername("admin");
+        if(userDetails != null){
+            logger.info("----pwd:"+ new BCryptPasswordEncoder().matches("admin",userDetails.getPassword()));
 
-        try {
-            params = URLDecoder.decode(params,"UTF-8");
-            System.out.println("params:"+params);
-
-            System.out.println("------"+userDetailsService.loadUserByUsername("admin"));
-
-            if(userDetailsService.loadUserByUsername("admin") != null){
-
-                System.out.println("test");
-
-                return "/home/login";
-            }
-        }catch (UnsupportedEncodingException ex){
-            ex.printStackTrace();
+            return "/home/login";
         }
         return "/home/error";
     }
-
-
 }
